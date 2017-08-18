@@ -1,0 +1,6 @@
+com\elaine\controller\DepartmentController.class
+com\elaine\dao\DepartmentDAO.class
+com\elaine\controller\UserController.class
+com\elaine\dao\impl\DepartmentDAOImpl.class
+com\elaine\entity\DepartmentEntity.class
+com\elaine\entity\UserEntity.class
