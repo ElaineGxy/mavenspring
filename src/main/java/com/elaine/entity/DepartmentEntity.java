@@ -1,17 +1,26 @@
 package com.elaine.entity;
 
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "department", schema = "department", catalog = "")
+@Table(name = "department")
 public class DepartmentEntity {
     private int deptId;
     private String deptName;
     private String deptNo;
     private String location;
 
+    public DepartmentEntity(){}
+
+    public DepartmentEntity(int deptId,String deptName,String deptNo,String location){
+        this.deptId=deptId;
+        this.deptName=deptName;
+        this.deptNo=deptNo;
+        this.location=location;
+    }
+
     @Id
-    @Column(name = "DEPT_ID")
     public int getDeptId() {
         return deptId;
     }
@@ -20,8 +29,6 @@ public class DepartmentEntity {
         this.deptId = deptId;
     }
 
-    @Basic
-    @Column(name = "DEPT_NAME")
     public String getDeptName() {
         return deptName;
     }
@@ -30,8 +37,6 @@ public class DepartmentEntity {
         this.deptName = deptName;
     }
 
-    @Basic
-    @Column(name = "DEPT_NO")
     public String getDeptNo() {
         return deptNo;
     }
@@ -40,8 +45,6 @@ public class DepartmentEntity {
         this.deptNo = deptNo;
     }
 
-    @Basic
-    @Column(name = "LOCATION")
     public String getLocation() {
         return location;
     }

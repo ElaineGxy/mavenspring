@@ -1,20 +1,53 @@
 package com.elaine.controller;
 
+import com.elaine.dao.DepartmentDAO;
+import com.elaine.dao.UserDAO;
 import com.elaine.entity.UserEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
 @Controller
-@RequestMapping("/test")//Contoller下所有接口统一入口
+@Transactional
+@RequestMapping("/user")//Contoller下所有接口统一入口
 public class UserController {
 
-    //映射一个action
-    @RequestMapping("/user")
-    @ResponseBody//表示直接输出返回内容，不进行jsp或html跳转，本例是为了写接口，这里直接返回json
-    public UserEntity getUser() {
-        //创建一个UserEntity，直接返回，之前在web.xml中配置的jackson会将user对象转为json输出
-        UserEntity userEntity = new UserEntity("jack", "123456");
-        return userEntity;
+    @Autowired
+    private UserDAO userDAO;
+    Map<Long,UserEntity> users=new ConcurrentHashMap<Long,UserEntity>();
+    @RequestMapping(method= RequestMethod.GET)
+    public String toRegister(Model model){
+        model.addAttribute(new UserEntity());
+        return "user_register";
     }
+    public String register(Model model, UserEntity user, BindingResult result){
+        if(result.hasErrors())
+            return "user_register";
+        return null;
+    }
+
+    @RequestMapping("/login")
+    public String login(){
+        return "login";
+    }
+
+    @RequestMapping("/loginValid")
+    public String login(@RequestParam("uname")String username, @RequestParam("pwd")String password){
+        boolean isValid=userDAO.validateUser(username,password);
+        if(isValid)
+            return "main";
+        return "login";
+    }
+
+
 }

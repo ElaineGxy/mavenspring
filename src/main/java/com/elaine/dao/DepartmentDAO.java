@@ -7,4 +7,5 @@ import java.util.List;
 public interface DepartmentDAO {
     String getDepartmentById(int id);
     List<DepartmentEntity> getAllDepartment();
+    public void saveADepartment(DepartmentEntity departmentEntity);
 }

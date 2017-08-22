@@ -1,2 +1,9 @@
-D:\project\ideaProject\mavenspring\src\main\java\com\elaine\entity\User.java
+D:\project\ideaProject\mavenspring\src\main\java\com\elaine\dao\UserDAO.java
+D:\project\ideaProject\mavenspring\src\main\java\com\elaine\entity\DepartmentEntity.java
+D:\project\ideaProject\mavenspring\src\main\java\com\elaine\controller\DepartmentController.java
+D:\project\ideaProject\mavenspring\src\main\java\com\elaine\dao\DepartmentDAO.java
 D:\project\ideaProject\mavenspring\src\main\java\com\elaine\controller\UserController.java
+D:\project\ideaProject\mavenspring\src\main\java\com\elaine\controller\testSSH.java
+D:\project\ideaProject\mavenspring\src\main\java\com\elaine\dao\impl\UserDAOImpl.java
+D:\project\ideaProject\mavenspring\src\main\java\com\elaine\entity\UserEntity.java
+D:\project\ideaProject\mavenspring\src\main\java\com\elaine\dao\impl\DepartmentDAOImpl.java
